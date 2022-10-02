@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { useEffect } from "react";
 
 export default function InputFieldWithSlider(props) {
   const range = useRef(null);

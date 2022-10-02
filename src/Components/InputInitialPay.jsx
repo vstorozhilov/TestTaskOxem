@@ -7,6 +7,8 @@ export default function InputInitialPay(props) {
   const track = useRef(null);
   const text = useRef(null);
 
+  const {cost, setValue} = props;
+
   const changeSliderHandler = (e)=> {
     let relativeValue = (parseFloat(e.currentTarget.value) - props.min) / (props.max - props.min) * 100
     thumb.current.style.left = `${relativeValue}%`
@@ -43,10 +45,10 @@ export default function InputInitialPay(props) {
   }
 
   useEffect(()=>{
-    let value = Math.round(props.cost * range.current.value);
+    let value = Math.round(cost * range.current.value);
     text.current.value = value.toLocaleString('ru-RU');
-    props.setValue(value);
-  }, [props.cost])
+    setValue(value);
+  }, [cost, setValue])
 
   return (
     <div className="InteractiveContainer">
